@@ -1,10 +1,20 @@
+require("dotenv").config();
 // package serveur
+const axios = require("axios");
 const express = require("express");
 const cors = require("cors");
+const router = express.Router();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+//import des routes comics et character
+const comicsRoutes = require("./routes/comics");
+app.use(comicsRoutes);
+
+const charactersRoutes = require("./routes/characters");
+app.use(charactersRoutes);
 
 // route home
 app.get("/", (req, res) => {
