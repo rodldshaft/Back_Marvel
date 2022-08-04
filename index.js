@@ -4,8 +4,10 @@ const axios = require("axios");
 const express = require("express");
 const cors = require("cors");
 const router = express.Router();
+const morgan = require("morgan");
 
 const app = express();
+app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
@@ -30,5 +32,5 @@ app.all("*", (req, res) => {
 
 // lancement du serveur
 app.listen(4000, () => {
-  console.log("serveur has started🔥");
+  console.log("serveur has started🔥 port 4000");
 });
