@@ -14,9 +14,14 @@ app.use(express.json());
 //import des routes comics et character
 const comicsRoutes = require("./routes/comics");
 app.use(comicsRoutes);
+const comicRoutes = require("./routes/comic");
+app.use(comicRoutes);
 
 const charactersRoutes = require("./routes/characters");
 app.use(charactersRoutes);
+
+const characterRoutes = require("./routes/character");
+app.use(characterRoutes);
 
 // route home
 app.get("/", (req, res) => {
