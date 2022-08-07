@@ -5,17 +5,18 @@ let result = false;
 //routes du front ou postman
 
 // route comics liste des comics
-router.get("/comic", async (req, res) => {
+router.get("/comic/:comicId", async (req, res) => {
   try {
+    console.log("req.query");
     console.log(req.query);
-    // console.log(route);
-    result = true;
-    console.log("result : " + result);
-
+    console.log("req.params.comicId");
+    console.log(req.params.comicId);
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics/${req.params.id}?apiKey=${process.env.API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics/${req.params.comicId}?apiKey=${process.env.API_KEY}?limit=5`
     );
+
     console.log(response.data);
+    console.log(response.data.counter);
 
     res.status(200).json(response.data);
   } catch (error) {
