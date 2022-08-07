@@ -16,7 +16,7 @@ router.get("/comics", async (req, res) => {
       `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}&limit=5`
     );
 
-    console.log(response.data);
+    // console.log(response.data);
 
     res.status(200).json(response.data);
   } catch (error) {
